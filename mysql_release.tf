@@ -16,9 +16,9 @@ provider "kubernetes"{
     token                  = data.aws_eks_cluster_auth.myapp_eks_cluster.token
 }
 
-resource "kubernetes_storage_class" "example" {
+resource "kubernetes_storage_class" "tf-storage-class" {
   metadata {
-    name = "terraform-example"
+    name = "tf-storage-class"
     annotations = {
         "storageclass.kubernetes.io/is-default-class" =  "true"
     }
@@ -32,7 +32,10 @@ resource "kubernetes_storage_class" "example" {
 }
 
 resource "helm_release" "mysql-jk" {
-  depends_on = [module.eks]
+  depends_on = [
+    module.eks,
+    kubernetes_storage_class.tf-storage-class
+    ]
   name       = "mysql"
   repository = "https://charts.bitnami.com/bitnami"
   chart      = "mysql"
