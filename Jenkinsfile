@@ -19,7 +19,7 @@ pipeline {
                 script{
                     //tf provision
                     sh """
-                        echo 'creating EKS cluster ${TV_VAR_cluster_name}'
+                        echo 'creating EKS cluster ${TF_VAR_cluster_name}'
                         terraform init -migrate-state
                         terraform apply --auto-approve
                     """
