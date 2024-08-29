@@ -21,7 +21,7 @@ pipeline {
                     sh """
                         echo 'creating EKS cluster ${TF_VAR_cluster_name}'
                         terraform init -migrate-state
-                        terraform destry --auto-approve
+                        terraform destroy --auto-approve
                         #terraform apply --auto-approve
                     """
                     
