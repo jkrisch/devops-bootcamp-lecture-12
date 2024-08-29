@@ -26,7 +26,7 @@ pipeline {
                     """
                     
                     //update kubeconfig
-                    sh "aws eks update-kubeconfig --name TF_VAR_cluster_name --region TF_VAR_region"
+                    sh "aws eks update-kubeconfig --name ${TF_VAR_cluster_name} --region ${TF_VAR_region}"
                 }
             }
         }
