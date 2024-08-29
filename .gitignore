@@ -1,0 +1,7 @@
+#state is updated with every tf apply command
+*.tfstate*
+
+#includes provider binary
+.terraform/
+
+start.tf
