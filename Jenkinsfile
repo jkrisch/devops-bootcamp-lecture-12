@@ -21,7 +21,7 @@ pipeline {
                     sh """
                         echo 'creating EKS cluster ${TV_VAR_cluster_name}'
                         terraform init -migrate-state
-                        #terraform apply --auto-approve
+                        terraform apply --auto-approve
                     """
                     
                     //update kubeconfig
