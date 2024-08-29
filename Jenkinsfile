@@ -10,10 +10,10 @@ pipeline {
     stages{
         stage("provision eks cluster"){
             environment{
-                TV_VAR_cluster_name = "my-cluster"
-                TV_VAR_env_prefix = "dev"
-                TV_VAR_region = "eu-central-1"
-                TV_VAR_kubernetes_version = "1.30"
+                TF_VAR_cluster_name = "my-cluster"
+                TF_VAR_env_prefix = "dev"
+                TF_VAR_region = "eu-central-1"
+                TF_VAR_kubernetes_version = "1.30"
             }
             steps{
                 script{
